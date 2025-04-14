@@ -27,7 +27,6 @@ jobs:
 
     env:
       DATABASE_URL: postgresql+psycopg2://postgres:postgres@localhost:5432/test_db
-      PYTHONPATH: $GITHUB_WORKSPACE/app  # Добавляем путь к папке app в PYTHONPATH
 
     steps:
       - name: Checkout repo

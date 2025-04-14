@@ -1,7 +1,7 @@
 import sys
 import os
 
-# Добавляем папку 'app' в путь поиска модулей
+# Добавляем путь до папки app в sys.path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'app')))
 
 import pytest
