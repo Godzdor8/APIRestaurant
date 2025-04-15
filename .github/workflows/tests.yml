@@ -45,6 +45,9 @@ jobs:
       - name: Set PYTHONPATH
         run: echo "PYTHONPATH=$PWD" >> $GITHUB_ENV
 
+      - name: Apply Alembic migrations
+        run: alembic upgrade head
+
       - name: Run tests
         run: |
           pytest --cov=app tests/
