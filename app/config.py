@@ -5,6 +5,6 @@ class Settings(BaseSettings):
     DATABASE_URL: str
 
     class Config:
-        env_file = os.getenv("ENV_FILE", ".env.docker")  # читаем переменные из нужного файла
+        env_file = os.getenv("ENV_FILE", ".env.docker")
 
 settings = Settings()

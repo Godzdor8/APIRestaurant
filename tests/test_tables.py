@@ -13,7 +13,6 @@ def test_get_tables(client):
     assert isinstance(response.json(), list)
 
 def test_delete_table(client):
-    # Создаем столик, чтобы его удалить
     create_resp = client.post("/tables/", json={
         "name": "To Delete",
         "seats": 4,

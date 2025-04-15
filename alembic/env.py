@@ -4,12 +4,10 @@ from alembic import context
 import sys
 import os
 
-# Добавляем app в sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from app.db.session import Base
-from app.models import table, reservation  # обязательно импортировать модели
-from app.config import settings  # <--- подключаем настройки
+from app.config import settings
 
 config = context.config
 
@@ -21,7 +19,7 @@ target_metadata = Base.metadata
 
 def run_migrations_offline() -> None:
     """Run migrations in 'offline' mode."""
-    url = settings.DATABASE_URL  # <-- берем из settings
+    url = settings.DATABASE_URL
     context.configure(
         url=url,
         target_metadata=target_metadata,
@@ -35,7 +33,7 @@ def run_migrations_offline() -> None:
 
 def run_migrations_online() -> None:
     """Run migrations in 'online' mode."""
-    connectable = create_engine(  # <-- напрямую создаем engine
+    connectable = create_engine(
         settings.DATABASE_URL,
         poolclass=pool.NullPool,
     )
