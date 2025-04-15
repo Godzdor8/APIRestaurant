@@ -55,6 +55,9 @@ def create_reservation(reservation: ReservationCreate, db: Session) -> Reservati
         db.refresh(new_reservation)
         return new_reservation
 
+    except HTTPException as e:
+        raise
+
     except Exception as e:
         print("💥 Ошибка при создании брони:", e)
         raise HTTPException(status_code=500, detail=str(e))
