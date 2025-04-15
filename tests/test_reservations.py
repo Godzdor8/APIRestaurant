@@ -32,7 +32,7 @@ def test_conflicting_reservation(client):
     })
 
     assert response.status_code == 400
-    assert "уже забронирован" in response.json()["detail"]
+    assert "already reserved" in response.json()["detail"].lower()
 
 def test_delete_reservation(client):
     reservations = client.get("/reservations/").json()
