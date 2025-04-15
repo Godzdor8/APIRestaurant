@@ -1,7 +1,6 @@
 import datetime
 
 def test_create_reservation(client):
-    # Сначала создаём столик
     table_resp = client.post("/tables/", json={
         "name": "Table for Reservation",
         "seats": 4,
@@ -22,7 +21,6 @@ def test_create_reservation(client):
     assert response.json()["customer_name"] == "John Doe"
 
 def test_conflicting_reservation(client):
-    # Используем тот же столик и время, что и в предыдущем тесте
     table_id = client.get("/tables/").json()[-1]["id"]
     reservation_time = (datetime.datetime.utcnow() + datetime.timedelta(hours=1)).isoformat()
 

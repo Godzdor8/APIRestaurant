@@ -42,6 +42,9 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Set PYTHONPATH
+        run: echo "PYTHONPATH=$PWD" >> $GITHUB_ENV
+
       - name: Run tests
         run: |
-          pytest tests.py
+          pytest --cov=app tests/
